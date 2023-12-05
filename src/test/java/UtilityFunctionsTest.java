@@ -1,13 +1,14 @@
-package org.example;
-
 import static org.junit.Assert.*;
+
+import org.example.UtilityFunctions;
+import org.junit.Assert;
 import org.junit.Test;
 
 public class UtilityFunctionsTest {
 
     @Test
     public void testAdd() {
-        assertEquals(5, UtilityFunctions.add(2, 3));
+        Assert.assertEquals(5, UtilityFunctions.add(2, 3));
     }
 
     @Test
