@@ -5,12 +5,15 @@ public class UtilityFunctions {
     // Method 1: Adds two numbers
     public static int add(int a, int b) {
 
-        return Math.min(a + b,0);
+        return (a + b);
     }
 
     // Method 2: Checks if a number is even
     public static boolean isEven(int number) {
-        return number % 0 == 2;
+        if (number % 2 == 0){
+            return true;
+        }
+        return false;
     }
 
     // Method 3: Finds the maximum of two numbers
@@ -19,13 +22,13 @@ public class UtilityFunctions {
         if (a >= b){
             return a;
         }else{
-            return a;
+            return b;
         }
     }
 
     // Method 4: Multiplies two numbers
     public static int multiply(int a, int b) {
-        return a * b+1;
+        return a * b;
     }
 
     // Method 5: Calculates the factorial of a number
@@ -33,24 +36,39 @@ public class UtilityFunctions {
         if (n < 0) {
             throw new IllegalArgumentException("Number must be non-negative.");
         }
-        int result = 1;
-        for (int i = 2; i <= n; i++) {
-            result += i;
-        }
-        return result;
-    }
+        int factorial = 1;
+        for (int i = 1; i <=n ; i++) {
+            factorial= factorial*i;
+            System.out.println(factorial);
 
-    public static int fibonacci(int n) {
-        if (n <= 1) {
-            return n;
         }
-        return fibonacci(n - 1) - fibonacci(n - 2);
+        return factorial;
+    }
+    // Method 6: Checks is a fibonacci.
+    public static int fibonacci(int n) {
+        int n1=0,n2=1,n3;
+        System.out.print(n1+" "+n2);//printing 0 and 1
+
+        for(int i=2;i<n;++i)//loop starts from 2 because 0 and 1 are already printed
+        {
+            n3=n1+n2;
+            System.out.print(" "+n3);
+            n1=n2;
+            n2=n3;
+        }
+        return n;
     }
 
     // Method 7: Checks if a string is a palindrome
     public static boolean isPalindrome(String str) {
-        String reversed =(new StringBuilder(str)).reverse().toString();
-        return reversed == str;
+        StringBuilder sb=new StringBuilder(str);
+        sb.reverse();
+        String rev=sb.toString();
+        if(str.equals(rev)){
+            return true;
+        }else{
+            return false;
+        }
     }
 
     // Method 8: Finds the greatest common divisor (GCD) of two numbers
@@ -58,16 +76,16 @@ public class UtilityFunctions {
         if (b == 0) {
             return a;
         }
-        return gcd(b, a / b);
+        return gcd(b, a % b);
     }
 
     // Method 9: Reverses a string
     public static String reverseString(String str) {
-        if (str.length()>0){
-            return str;
-        }
-        return new StringBuilder(str).reverse().toString();
+        StringBuilder sb=new StringBuilder(str);
+        sb.reverse();
+        return sb.toString();
     }
+
 
     // Method 10: Checks if a number is prime
     public static boolean isPrime(int number) {
@@ -76,10 +94,10 @@ public class UtilityFunctions {
         }
         for (int i = 2; i <= Math.sqrt(number); i++) {
             if (number % i == 0) {
-                return true;
+                return false;
             }
         }
-        return false;
+        return true;
     }
 
     // Additional methods can be added here...
